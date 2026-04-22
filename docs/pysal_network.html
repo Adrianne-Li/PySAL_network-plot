@@ -1,0 +1,630 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "orange", "font": {"color": "black"}, "id": "access", "label": "access", "shape": "dot", "title": "access|42,069|14|27", "value": 40.055821328110476}, {"color": "lightblue", "font": {"color": "black"}, "id": "affine", "label": "affine", "shape": "dot", "title": "affine|4,789,819|data not available for now|data not available for now", "value": 53.4220747549209}, {"color": "lightblue", "font": {"color": "black"}, "id": "attrs", "label": "attrs", "shape": "dot", "title": "attrs|755,770,426|data not available for now|data not available for now", "value": 67.70953431191617}, {"color": "lightblue", "font": {"color": "black"}, "id": "beautifulsoup4", "label": "beautifulsoup4", "shape": "dot", "title": "beautifulsoup4|314,531,091|data not available for now|data not available for now", "value": 65.23481328783257}, {"color": "lightblue", "font": {"color": "black"}, "id": "certifi", "label": "certifi", "shape": "dot", "title": "certifi|1,411,702,997|data not available for now|data not available for now", "value": 69.47333169059894}, {"color": "lightblue", "font": {"color": "black"}, "id": "charset-normalizer", "label": "charset-normalizer", "shape": "dot", "title": "charset-normalizer|1,336,460,080|data not available for now|data not available for now", "value": 69.3187139431602}, {"color": "lightblue", "font": {"color": "black"}, "id": "click", "label": "click", "shape": "dot", "title": "click|838,180,913|data not available for now|data not available for now", "value": 68.00169548812283}, {"color": "lightblue", "font": {"color": "black"}, "id": "click-plugins", "label": "click-plugins", "shape": "dot", "title": "click-plugins|50,817,232|data not available for now|data not available for now", "value": 60.08907159106093}, {"color": "lightblue", "font": {"color": "black"}, "id": "cligj", "label": "cligj", "shape": "dot", "title": "cligj|9,126,876|data not available for now|data not available for now", "value": 55.242094285192074}, {"color": "lightblue", "font": {"color": "black"}, "id": "contourpy", "label": "contourpy", "shape": "dot", "title": "contourpy|180,249,522|data not available for now|data not available for now", "value": 63.663181806687675}, {"color": "lightblue", "font": {"color": "black"}, "id": "cycler", "label": "cycler", "shape": "dot", "title": "cycler|161,041,170|data not available for now|data not available for now", "value": 63.34508997892801}, {"color": "lightblue", "font": {"color": "black"}, "id": "deprecation", "label": "deprecation", "shape": "dot", "title": "deprecation|63,590,888|data not available for now|data not available for now", "value": 60.722066826981035}, {"color": "orange", "font": {"color": "black"}, "id": "esda", "label": "esda", "shape": "dot", "title": "esda|142,523|43|234", "value": 43.5002720163767}, {"color": "lightblue", "font": {"color": "black"}, "id": "fiona", "label": "fiona", "shape": "dot", "title": "fiona|7,068,889|78|1,236", "value": 54.520782953372986}, {"color": "lightblue", "font": {"color": "black"}, "id": "fonttools", "label": "fonttools", "shape": "dot", "title": "fonttools|210,866,163|data not available for now|data not available for now", "value": 64.1060448342833}, {"color": "lightblue", "font": {"color": "black"}, "id": "geopandas", "label": "geopandas", "shape": "dot", "title": "geopandas|20,395,160|261|5,108", "value": 57.51192639700027}, {"color": "orange", "font": {"color": "black"}, "id": "giddy", "label": "giddy", "shape": "dot", "title": "giddy|97,777|18|77", "value": 42.43656747332713}, {"color": "lightblue", "font": {"color": "black"}, "id": "gwlearn", "label": "gwlearn", "shape": "dot", "title": "gwlearn|16,218|data not available for now|data not available for now", "value": 37.36515647972752}, {"color": "lightblue", "font": {"color": "black"}, "id": "idna", "label": "idna", "shape": "dot", "title": "idna|1,327,553,219|data not available for now|data not available for now", "value": 69.29983761287328}, {"color": "orange", "font": {"color": "black"}, "id": "inequality", "label": "inequality", "shape": "dot", "title": "inequality|34,829|11|35", "value": 39.52269758397854}, {"color": "lightblue", "font": {"color": "black"}, "id": "jinja2", "label": "jinja2", "shape": "dot", "title": "jinja2|538,647,381|data not available for now|data not available for now", "value": 66.75347959694162}, {"color": "lightblue", "font": {"color": "black"}, "id": "joblib", "label": "joblib", "shape": "dot", "title": "joblib|191,800,013|data not available for now|data not available for now", "value": 63.838516124477316}, {"color": "lightblue", "font": {"color": "black"}, "id": "kiwisolver", "label": "kiwisolver", "shape": "dot", "title": "kiwisolver|195,562,164|data not available for now|data not available for now", "value": 63.89335143750995}, {"color": "lightblue", "font": {"color": "black"}, "id": "lazy-loader", "label": "lazy-loader", "shape": "dot", "title": "lazy-loader|27,150,951|data not available for now|data not available for now", "value": 58.31960290272668}, {"color": "orange", "font": {"color": "black"}, "id": "libpysal", "label": "libpysal", "shape": "dot", "title": "libpysal|273,860|79|289", "value": 45.34394623268872}, {"color": "lightblue", "font": {"color": "black"}, "id": "llvmlite", "label": "llvmlite", "shape": "dot", "title": "llvmlite|58,780,554|data not available for now|data not available for now", "value": 60.50001893508077}, {"color": "orange", "font": {"color": "black"}, "id": "mapclassify", "label": "mapclassify", "shape": "dot", "title": "mapclassify|772,269|30|149", "value": 48.270499568196335}, {"color": "lightblue", "font": {"color": "black"}, "id": "markupsafe", "label": "markupsafe", "shape": "dot", "title": "markupsafe|595,453,449|data not available for now|data not available for now", "value": 67.03651080311332}, {"color": "lightblue", "font": {"color": "black"}, "id": "matplotlib", "label": "matplotlib", "shape": "dot", "title": "matplotlib|201,568,003|1,909|22,732", "value": 63.97874036937266}, {"color": "orange", "font": {"color": "black"}, "id": "mgwr", "label": "mgwr", "shape": "dot", "title": "mgwr|35,184|14|426", "value": 39.55132410986219}, {"color": "orange", "font": {"color": "black"}, "id": "momepy", "label": "momepy", "shape": "dot", "title": "momepy|130,678|20|600", "value": 43.255337715909015}, {"color": "lightblue", "font": {"color": "black"}, "id": "mpmath", "label": "mpmath", "shape": "dot", "title": "mpmath|156,049,450|data not available for now|data not available for now", "value": 63.256204593188144}, {"color": "lightblue", "font": {"color": "black"}, "id": "networkx", "label": "networkx", "shape": "dot", "title": "networkx|250,567,413|830|16,838", "value": 64.59300984045626}, {"color": "lightblue", "font": {"color": "black"}, "id": "numba", "label": "numba", "shape": "dot", "title": "numba|58,819,253|data not available for now|data not available for now", "value": 60.50187682853962}, {"color": "lightblue", "font": {"color": "black"}, "id": "numpy", "label": "numpy", "shape": "dot", "title": "numpy|889,495,654|2,068|31,872", "value": 68.16943490141894}, {"color": "lightblue", "font": {"color": "black"}, "id": "packaging", "label": "packaging", "shape": "dot", "title": "packaging|1,604,709,629|data not available for now|data not available for now", "value": 69.83507698259587}, {"color": "lightblue", "font": {"color": "black"}, "id": "pandas", "label": "pandas", "shape": "dot", "title": "pandas|640,675,303|4,189|48,550", "value": 67.24314689366203}, {"color": "lightblue", "font": {"color": "black"}, "id": "patsy", "label": "patsy", "shape": "dot", "title": "patsy|33,062,516|data not available for now|data not available for now", "value": 58.8756834324443}, {"color": "lightblue", "font": {"color": "black"}, "id": "pillow", "label": "pillow", "shape": "dot", "title": "pillow|415,565,342|data not available for now|data not available for now", "value": 66.02115558934027}, {"color": "lightblue", "font": {"color": "black"}, "id": "platformdirs", "label": "platformdirs", "shape": "dot", "title": "platformdirs|597,915,021|data not available for now|data not available for now", "value": 67.04815652093626}, {"color": "orange", "font": {"color": "black"}, "id": "pointpats", "label": "pointpats", "shape": "dot", "title": "pointpats|66,701|20|95", "value": 41.35690256428997}, {"color": "lightblue", "font": {"color": "black"}, "id": "pulp", "label": "pulp", "shape": "dot", "title": "pulp|5,353,841|data not available for now|data not available for now", "value": 53.73632607728137}, {"color": "lightblue", "font": {"color": "black"}, "id": "pyogrio", "label": "pyogrio", "shape": "dot", "title": "pyogrio|15,794,695|data not available for now|data not available for now", "value": 56.790323264554}, {"color": "lightblue", "font": {"color": "black"}, "id": "pyparsing", "label": "pyparsing", "shape": "dot", "title": "pyparsing|338,835,187|data not available for now|data not available for now", "value": 65.44492528535179}, {"color": "lightblue", "font": {"color": "black"}, "id": "pyproj", "label": "pyproj", "shape": "dot", "title": "pyproj|25,430,212|79|1,201", "value": 58.134774985585366}, {"color": "red", "font": {"color": "black"}, "id": "pysal", "label": "pysal", "shape": "dot", "title": "pysal|35,970|82|1,492", "value": 39.613691324410624}, {"color": "lightblue", "font": {"color": "black"}, "id": "python-dateutil", "label": "python-dateutil", "shape": "dot", "title": "python-dateutil|1,006,140,764|data not available for now|data not available for now", "value": 68.51728184456958}, {"color": "lightblue", "font": {"color": "black"}, "id": "quantecon", "label": "quantecon", "shape": "dot", "title": "quantecon|49,540|data not available for now|data not available for now", "value": 40.51727099657056}, {"color": "lightblue", "font": {"color": "black"}, "id": "rasterio", "label": "rasterio", "shape": "dot", "title": "rasterio|5,259,817|177|2,517", "value": 53.68630966033377}, {"color": "lightblue", "font": {"color": "black"}, "id": "rasterstats", "label": "rasterstats", "shape": "dot", "title": "rasterstats|202,910|data not available for now|data not available for now", "value": 44.49748634274859}, {"color": "lightblue", "font": {"color": "black"}, "id": "requests", "label": "requests", "shape": "dot", "title": "requests|1,426,831,293|786|53,912", "value": 69.50342206861903}, {"color": "lightblue", "font": {"color": "black"}, "id": "rtree", "label": "rtree", "shape": "dot", "title": "rtree|6,899,615|data not available for now|data not available for now", "value": 54.452361984112244}, {"color": "lightblue", "font": {"color": "black"}, "id": "scikit-learn", "label": "scikit-learn", "shape": "dot", "title": "scikit-learn|201,063,544|3,500|65,884", "value": 63.97166668034366}, {"color": "lightblue", "font": {"color": "black"}, "id": "scipy", "label": "scipy", "shape": "dot", "title": "scipy|362,750,532|1,904|14,625", "value": 65.63745238500712}, {"color": "lightblue", "font": {"color": "black"}, "id": "seaborn", "label": "seaborn", "shape": "dot", "title": "seaborn|46,164,075|216|13,825", "value": 59.817976957676215}, {"color": "orange", "font": {"color": "black"}, "id": "segregation", "label": "segregation", "shape": "dot", "title": "segregation|30,679|15|120", "value": 39.16455980930013}, {"color": "lightblue", "font": {"color": "black"}, "id": "shapely", "label": "shapely", "shape": "dot", "title": "shapely|70,242,635|172|4,427", "value": 61.00290520650854}, {"color": "lightblue", "font": {"color": "black"}, "id": "simplejson", "label": "simplejson", "shape": "dot", "title": "simplejson|68,738,797|data not available for now|data not available for now", "value": 60.94181256829216}, {"color": "lightblue", "font": {"color": "black"}, "id": "six", "label": "six", "shape": "dot", "title": "six|977,848,480|data not available for now|data not available for now", "value": 68.43676517548238}, {"color": "lightblue", "font": {"color": "black"}, "id": "soupsieve", "label": "soupsieve", "shape": "dot", "title": "soupsieve|322,647,787|data not available for now|data not available for now", "value": 65.30673649818823}, {"color": "orange", "font": {"color": "black"}, "id": "spaghetti", "label": "spaghetti", "shape": "dot", "title": "spaghetti|32,791|24|284", "value": 39.352491384504894}, {"color": "orange", "font": {"color": "black"}, "id": "spglm", "label": "spglm", "shape": "dot", "title": "spglm|37,673|9|36", "value": 39.74427126737295}, {"color": "orange", "font": {"color": "black"}, "id": "spint", "label": "spint", "shape": "dot", "title": "spint|19,683|9|58", "value": 37.91173681635328}, {"color": "orange", "font": {"color": "black"}, "id": "splot", "label": "splot", "shape": "dot", "title": "splot|33,404|59|102", "value": 39.40477459458317}, {"color": "orange", "font": {"color": "black"}, "id": "spopt", "label": "spopt", "shape": "dot", "title": "spopt|36,581|23|371", "value": 39.661238395136166}, {"color": "orange", "font": {"color": "black"}, "id": "spreg", "label": "spreg", "shape": "dot", "title": "spreg|48,867|28|87", "value": 40.47865967383259}, {"color": "lightblue", "font": {"color": "black"}, "id": "statsmodels", "label": "statsmodels", "shape": "dot", "title": "statsmodels|35,459,351|483|11,376", "value": 59.07325016650239}, {"color": "lightblue", "font": {"color": "black"}, "id": "sympy", "label": "sympy", "shape": "dot", "title": "sympy|161,507,974|data not available for now|data not available for now", "value": 63.353260817666786}, {"color": "lightblue", "font": {"color": "black"}, "id": "threadpoolctl", "label": "threadpoolctl", "shape": "dot", "title": "threadpoolctl|176,032,516|data not available for now|data not available for now", "value": 63.596353842043534}, {"color": "orange", "font": {"color": "black"}, "id": "tobler", "label": "tobler", "shape": "dot", "title": "tobler|46,564|11|169", "value": 40.34238744739112}, {"color": "lightblue", "font": {"color": "black"}, "id": "tqdm", "label": "tqdm", "shape": "dot", "title": "tqdm|416,270,642|data not available for now|data not available for now", "value": 66.0259425950678}, {"color": "lightblue", "font": {"color": "black"}, "id": "typing-extensions", "label": "typing-extensions", "shape": "dot", "title": "typing-extensions|1,387,100,508|data not available for now|data not available for now", "value": 69.42370155212907}, {"color": "lightblue", "font": {"color": "black"}, "id": "urllib3", "label": "urllib3", "shape": "dot", "title": "urllib3|1,485,451,760|data not available for now|data not available for now", "value": 69.61708059424762}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#d62728", "from": "pysal", "to": "access", "width": 1.02}, {"arrows": "to", "color": "#ff7f0e", "from": "access", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#1f77b4", "from": "pandas", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "pandas", "to": "python-dateutil", "width": 4.167}, {"arrows": "to", "color": "#1f77b4", "from": "python-dateutil", "to": "six", "width": 4.122}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "pyogrio", "width": 1.397}, {"arrows": "to", "color": "#1f77b4", "from": "pyogrio", "to": "certifi", "width": 4.752}, {"arrows": "to", "color": "#1f77b4", "from": "pyogrio", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "pyogrio", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "pyproj", "width": 1.504}, {"arrows": "to", "color": "#1f77b4", "from": "pyproj", "to": "certifi", "width": 4.752}, {"arrows": "to", "color": "#1f77b4", "from": "geopandas", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#1f77b4", "from": "shapely", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "access", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "access", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "access", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#1f77b4", "from": "scipy", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "beautifulsoup4", "width": 2.771}, {"arrows": "to", "color": "#1f77b4", "from": "beautifulsoup4", "to": "soupsieve", "width": 2.794}, {"arrows": "to", "color": "#1f77b4", "from": "beautifulsoup4", "to": "typing-extensions", "width": 4.719}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "esda", "width": 1.038}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "beautifulsoup4", "width": 2.771}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "jinja2", "width": 3.317}, {"arrows": "to", "color": "#1f77b4", "from": "jinja2", "to": "markupsafe", "width": 3.437}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "platformdirs", "width": 3.442}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "requests", "width": 4.772}, {"arrows": "to", "color": "#1f77b4", "from": "requests", "to": "certifi", "width": 4.752}, {"arrows": "to", "color": "#1f77b4", "from": "requests", "to": "charset-normalizer", "width": 4.65}, {"arrows": "to", "color": "#1f77b4", "from": "requests", "to": "idna", "width": 4.638}, {"arrows": "to", "color": "#1f77b4", "from": "requests", "to": "urllib3", "width": 4.848}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#1f77b4", "from": "scikit-learn", "to": "joblib", "width": 2.383}, {"arrows": "to", "color": "#1f77b4", "from": "scikit-learn", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "scikit-learn", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#1f77b4", "from": "scikit-learn", "to": "threadpoolctl", "width": 2.325}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "libpysal", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "esda", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "giddy", "width": 1.031}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "esda", "width": 1.038}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "mapclassify", "width": 1.088}, {"arrows": "to", "color": "#ff7f0e", "from": "mapclassify", "to": "networkx", "width": 2.581}, {"arrows": "to", "color": "#ff7f0e", "from": "mapclassify", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "mapclassify", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "mapclassify", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#ff7f0e", "from": "mapclassify", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "contourpy", "width": 2.341}, {"arrows": "to", "color": "#1f77b4", "from": "contourpy", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "cycler", "width": 2.267}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "fonttools", "width": 2.45}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "kiwisolver", "width": 2.396}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "pillow", "width": 3.036}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "pyparsing", "width": 2.838}, {"arrows": "to", "color": "#1f77b4", "from": "matplotlib", "to": "python-dateutil", "width": 4.167}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "quantecon", "width": 1.022}, {"arrows": "to", "color": "#1f77b4", "from": "quantecon", "to": "numba", "width": 1.766}, {"arrows": "to", "color": "#1f77b4", "from": "numba", "to": "llvmlite", "width": 1.766}, {"arrows": "to", "color": "#1f77b4", "from": "numba", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "quantecon", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "quantecon", "to": "requests", "width": 4.772}, {"arrows": "to", "color": "#1f77b4", "from": "quantecon", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#1f77b4", "from": "quantecon", "to": "sympy", "width": 2.269}, {"arrows": "to", "color": "#1f77b4", "from": "sympy", "to": "mpmath", "width": 2.247}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "giddy", "to": "seaborn", "width": 1.678}, {"arrows": "to", "color": "#1f77b4", "from": "seaborn", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#1f77b4", "from": "seaborn", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "seaborn", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "gwlearn", "width": 1.013}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "joblib", "width": 2.383}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#1f77b4", "from": "gwlearn", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "inequality", "width": 1.019}, {"arrows": "to", "color": "#ff7f0e", "from": "inequality", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "inequality", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#ff7f0e", "from": "inequality", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "inequality", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "inequality", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "lazy-loader", "width": 1.52}, {"arrows": "to", "color": "#1f77b4", "from": "lazy-loader", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "mapclassify", "width": 1.088}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "mgwr", "width": 1.019}, {"arrows": "to", "color": "#ff7f0e", "from": "mgwr", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "mgwr", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "mgwr", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "mgwr", "to": "spglm", "width": 1.019}, {"arrows": "to", "color": "#ff7f0e", "from": "spglm", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "spglm", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "spglm", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "spglm", "to": "spreg", "width": 1.022}, {"arrows": "to", "color": "#ff7f0e", "from": "spreg", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "spreg", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "spreg", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "spreg", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#ff7f0e", "from": "spreg", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "mgwr", "to": "spreg", "width": 1.022}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "momepy", "width": 1.036}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "networkx", "width": 2.581}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#ff7f0e", "from": "momepy", "to": "tqdm", "width": 3.037}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "platformdirs", "width": 3.442}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "pointpats", "width": 1.026}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "pointpats", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "requests", "width": 4.772}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "segregation", "width": 1.017}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "deprecation", "width": 1.796}, {"arrows": "to", "color": "#1f77b4", "from": "deprecation", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "joblib", "width": 2.383}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "mapclassify", "width": 1.088}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "numba", "width": 1.766}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "pyproj", "width": 1.504}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "seaborn", "width": 1.678}, {"arrows": "to", "color": "#ff7f0e", "from": "segregation", "to": "tqdm", "width": 3.037}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "spaghetti", "width": 1.018}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "esda", "width": 1.038}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "rtree", "width": 1.262}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "spaghetti", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "spglm", "width": 1.019}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "spint", "width": 1.014}, {"arrows": "to", "color": "#ff7f0e", "from": "spint", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "spint", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "spint", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "spint", "to": "spglm", "width": 1.019}, {"arrows": "to", "color": "#ff7f0e", "from": "spint", "to": "spreg", "width": 1.022}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "splot", "width": 1.018}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "esda", "width": 1.038}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "giddy", "width": 1.031}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "mapclassify", "width": 1.088}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "matplotlib", "width": 2.418}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "seaborn", "width": 1.678}, {"arrows": "to", "color": "#ff7f0e", "from": "splot", "to": "spreg", "width": 1.022}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "spopt", "width": 1.019}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "mapclassify", "width": 1.088}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "networkx", "width": 2.581}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "pointpats", "width": 1.026}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "pulp", "width": 1.231}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "scikit-learn", "width": 2.416}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "spaghetti", "width": 1.018}, {"arrows": "to", "color": "#ff7f0e", "from": "spopt", "to": "tqdm", "width": 3.037}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "spreg", "width": 1.022}, {"arrows": "to", "color": "#d62728", "from": "pysal", "to": "tobler", "width": 1.022}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "geopandas", "width": 1.451}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "joblib", "width": 2.383}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "libpysal", "width": 1.052}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "rasterio", "width": 1.229}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "affine", "width": 1.219}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "attrs", "width": 3.745}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "certifi", "width": 4.752}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "click", "width": 3.891}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "click-plugins", "width": 1.712}, {"arrows": "to", "color": "#1f77b4", "from": "click-plugins", "to": "click", "width": 3.891}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "cligj", "width": 1.302}, {"arrows": "to", "color": "#1f77b4", "from": "cligj", "to": "click", "width": 3.891}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "rasterio", "to": "pyparsing", "width": 2.838}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "rasterstats", "width": 1.045}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "affine", "width": 1.219}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "click", "width": 3.891}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "cligj", "width": 1.302}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "fiona", "width": 1.265}, {"arrows": "to", "color": "#1f77b4", "from": "fiona", "to": "attrs", "width": 3.745}, {"arrows": "to", "color": "#1f77b4", "from": "fiona", "to": "certifi", "width": 4.752}, {"arrows": "to", "color": "#1f77b4", "from": "fiona", "to": "click", "width": 3.891}, {"arrows": "to", "color": "#1f77b4", "from": "fiona", "to": "click-plugins", "width": 1.712}, {"arrows": "to", "color": "#1f77b4", "from": "fiona", "to": "cligj", "width": 1.302}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "rasterio", "width": 1.229}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "shapely", "width": 1.837}, {"arrows": "to", "color": "#1f77b4", "from": "rasterstats", "to": "simplejson", "width": 1.828}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "statsmodels", "width": 1.595}, {"arrows": "to", "color": "#1f77b4", "from": "statsmodels", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "statsmodels", "to": "packaging", "width": 5.0}, {"arrows": "to", "color": "#1f77b4", "from": "statsmodels", "to": "pandas", "width": 3.527}, {"arrows": "to", "color": "#1f77b4", "from": "statsmodels", "to": "patsy", "width": 1.574}, {"arrows": "to", "color": "#1f77b4", "from": "patsy", "to": "numpy", "width": 3.978}, {"arrows": "to", "color": "#1f77b4", "from": "statsmodels", "to": "scipy", "width": 2.902}, {"arrows": "to", "color": "#ff7f0e", "from": "tobler", "to": "tqdm", "width": 3.037}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"configure": {"enabled": false}, "edges": {"color": {"inherit": true}, "smooth": {"enabled": true, "type": "dynamic"}}, "interaction": {"dragNodes": true, "hideEdgesOnDrag": false, "hideNodesOnDrag": false, "hover": true}, "physics": {"enabled": true, "forceAtlas2Based": {"avoidOverlap": 0, "centralGravity": 0.01, "damping": 0.4, "gravitationalConstant": -50, "springConstant": 0.08, "springLength": 100}, "solver": "forceAtlas2Based", "stabilization": {"enabled": true, "fit": true, "iterations": 1000, "onlyDynamicEdges": false, "updateInterval": 50}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options); window.network = network;
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    
+<!-- Title and Instructions on the left side -->
+<div style="position: fixed; left: 20px; top: 20px; width: 350px; z-index: 100;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;
+border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); padding: 20px;">
+    <h1 style="margin: 0 0 10px 0; font-size: 1.8em; font-weight: bold;
+               text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+        🌐 PySAL Ecosystem Network
+    </h1>
+    <p style="margin: 0 0 15px 0; font-size: 1em; opacity: 0.9;">
+        Interactive dependency visualization
+    </p>
+    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 10px 0;">
+        <h3 style="margin: 0 0 10px 0; font-size: 1.1em;">📋 How to Use:</h3>
+        <div style="font-size: 0.9em; line-height: 1.4;">
+            <div style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="font-size: 1.2em; margin-right: 8px;">🖱️</span>
+                <span><strong>Click</strong> node → view connections</span>
+            </div>
+            <div style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="font-size: 1.2em; margin-right: 8px;">👆</span>
+                <span><strong>Hover</strong> → basic info</span>
+            </div>
+            <div style="margin: 8px 0; display: flex; align-items: center;">
+                <span style="font-size: 1.2em; margin-right: 8px;">✋</span>
+                <span><strong>Drag</strong> → pan around</span>
+            </div>
+        </div>
+        <!-- Interactive Zoom Slider -->
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.3);">
+            <div style="margin-bottom: 8px; font-size: 0.9em; font-weight: bold;">🔍 Zoom Control:</div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 0.8em;">−</span>
+                <input type="range" id="zoom-slider" min="0.1" max="3" step="0.1" value="1"
+                       style="flex: 1; height: 6px; background: rgba(255,255,255,0.3);
+                              border-radius: 3px; outline: none; cursor: pointer;">
+                <span style="font-size: 0.8em;">+</span>
+            </div>
+            <div style="text-align: center; font-size: 0.8em; margin-top: 4px; opacity: 0.8;">
+                Zoom: <span id="zoom-level">100%</span>
+            </div>
+        </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); padding: 12px; border-radius: 10px; font-size: 0.9em;">
+        <div style="margin-bottom: 8px;"><strong>🎨 Color Legend:</strong></div>
+        <div style="margin: 5px 0; display: flex; align-items: center;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: #d62728;
+                         border-radius: 50%; margin-right: 8px;"></span>
+            <span>Core PySAL</span>
+        </div>
+        <div style="margin: 5px 0; display: flex; align-items: center;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: #ff7f0e;
+                         border-radius: 50%; margin-right: 8px;"></span>
+            <span>PySAL Modules</span>
+        </div>
+        <div style="margin: 5px 0; display: flex; align-items: center;">
+            <span style="display: inline-block; width: 12px; height: 12px; background: #1f77b4;
+                         border-radius: 50%; margin-right: 8px;"></span>
+            <span>External Dependencies</span>
+        </div>
+    </div>
+</div>
+
+<!-- Side panel for node info -->
+<div id="side-panel" style="display:none; position:fixed; right:20px; top:20px; bottom:20px;
+width:350px; background:white; padding:20px; border-radius:15px; overflow-y:auto;
+box-shadow:0 8px 32px rgba(0,0,0,0.3); z-index:1000;">
+    <button id="close-panel" style="float:right; background:#e74c3c; color:white; border:none;
+            border-radius:50%; width:35px; height:35px; cursor:pointer; font-size:18px;
+            margin-left:10px;">&times;</button>
+    <div id="panel-body"></div>
+</div>
+
+<script type="text/javascript">
+// List of PySAL module ids (used to tag nodes in the side panel legend)
+var PYSAL_MODULE_IDS = ["access","esda","giddy","inequality","libpysal","mapclassify","mgwr",
+    "momepy","pointpats","segregation","splot","spopt","spreg","spglm","spvcm","spaghetti",
+    "spint","tobler"];
+
+function nodeTypeLabel(nodeId) {
+    if (nodeId === "pysal") return "Core PySAL Package";
+    if (PYSAL_MODULE_IDS.indexOf(nodeId) !== -1) return "PySAL Module";
+    return "External Dependency";
+}
+function nodeTypeEmoji(nodeId) {
+    if (nodeId === "pysal") return "🔴";
+    if (PYSAL_MODULE_IDS.indexOf(nodeId) !== -1) return "🟠";
+    return "🔵";
+}
+
+// Wait for the network to be ready
+setTimeout(function() {
+    if (typeof window.network !== 'undefined') {
+        var nodes = window.network.body.data.nodes;
+        var edges = window.network.body.data.edges;
+        // Store original values including label
+        nodes.forEach(function(data, id) {
+            nodes.update({
+                id: id,
+                originalValue: data.value || 10,
+                originalColor: data.color,
+                originalFont: data.font || {size: 14, color: 'black', face: 'Arial',
+                    strokeWidth: 1, strokeColor: 'white', align: 'center', vadjust: 0},
+                originalLabel: data.label || id
+            });
+        });
+        edges.forEach(function(data, id) {
+            edges.update({id: id, originalColor: data.color});
+        });
+        window.network.fit();
+        window.network.once('stabilized', function() {
+            var scale = window.network.getScale();
+            document.getElementById('zoom-slider').value = scale;
+            document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+            window.network.redraw();
+        });
+        setupPanel();
+        setupZoomSlider();
+    }
+}, 2000);
+
+function setupZoomSlider() {
+    var slider = document.getElementById('zoom-slider');
+    var zoomLevel = document.getElementById('zoom-level');
+    slider.addEventListener('input', function() {
+        var scale = parseFloat(this.value);
+        window.network.moveTo({ scale: scale });
+        zoomLevel.textContent = Math.round(scale * 100) + '%';
+    });
+    window.network.on('zoom', function(params) {
+        var currentScale = params.scale;
+        slider.value = currentScale;
+        zoomLevel.textContent = Math.round(currentScale * 100) + '%';
+        window.network.redraw();
+    });
+}
+
+function setupPanel() {
+    var panel = document.getElementById('side-panel');
+    var closeBtn = document.getElementById('close-panel');
+    closeBtn.onclick = function() {
+        panel.style.display = 'none';
+        resetNetwork();
+    };
+    window.network.on("click", function(params) {
+        if (params.nodes.length === 0) {
+            panel.style.display = 'none';
+            resetNetwork();
+            return;
+        }
+        var nodeId = params.nodes[0];
+        showNodePanel(nodeId);
+    });
+}
+
+function resetNetwork() {
+    var nodes = window.network.body.data.nodes;
+    var edges = window.network.body.data.edges;
+    nodes.update(nodes.get().map(function(node) {
+        return {
+            id: node.id,
+            color: node.originalColor,
+            value: node.originalValue,
+            hidden: false,
+            font: node.originalFont,
+            label: node.originalLabel
+        };
+    }));
+    edges.update(edges.get().map(function(edge) {
+        return { id: edge.id, color: edge.originalColor, hidden: false };
+    }));
+    window.network.setOptions({physics: true});
+    setTimeout(function() {
+        window.network.stabilize();
+        window.network.fit();
+        window.network.redraw();
+        setTimeout(function() {
+            window.network.redraw();
+            var currentScale = window.network.getScale();
+            window.network.moveTo({scale: currentScale * 1.01});
+            setTimeout(function() {
+                window.network.moveTo({scale: currentScale});
+                window.network.redraw();
+            }, 50);
+        }, 500);
+    }, 500);
+    window.network.once('stabilized', function() {
+        window.network.redraw();
+    });
+}
+
+function showNodePanel(nodeId) {
+    var nodes = window.network.body.data.nodes;
+    var edges = window.network.body.data.edges;
+    var allNodes = nodes.get();
+    var allEdges = edges.get();
+
+    var dependencies = [];
+    var dependents = [];
+    allEdges.forEach(function(edge) {
+        if (edge.from === nodeId) dependencies.push(edge.to);
+        if (edge.to === nodeId)   dependents.push(edge.from);
+    });
+    var uniqueDeps = Array.from(new Set(dependencies));
+    var uniqueDepents = Array.from(new Set(dependents));
+    var connectedNodes = Array.from(new Set(uniqueDeps.concat(uniqueDepents)));
+    var visibleNodesSet = new Set([nodeId].concat(connectedNodes));
+
+    nodes.update(allNodes.map(function(node) {
+        var isVisible = visibleNodesSet.has(node.id);
+        var enlargementFactor = isVisible ? 3 : 1;
+        var fontSize = isVisible ? 20 : node.originalFont.size;
+        var strokeWidth = isVisible ? 1.5 : node.originalFont.strokeWidth;
+        var newFont = Object.assign({}, node.originalFont,
+            {size: fontSize, strokeWidth: strokeWidth});
+        return {
+            id: node.id,
+            hidden: !isVisible,
+            value: node.originalValue * enlargementFactor,
+            color: node.originalColor,
+            font: newFont,
+            label: node.originalLabel
+        };
+    }));
+
+    edges.update(allEdges.map(function(edge) {
+        var isVisible = visibleNodesSet.has(edge.from) && visibleNodesSet.has(edge.to);
+        return { id: edge.id, hidden: !isVisible, color: edge.originalColor };
+    }));
+
+    window.network.setOptions({physics: false});
+    setTimeout(function() {
+        window.network.stabilize();
+        window.network.fit();
+        window.network.redraw();
+        setTimeout(function() {
+            window.network.redraw();
+            var currentScale = window.network.getScale();
+            window.network.moveTo({scale: currentScale * 1.01});
+            setTimeout(function() {
+                window.network.moveTo({scale: currentScale});
+                window.network.redraw();
+            }, 50);
+        }, 500);
+    }, 500);
+
+    var selectedNode = allNodes.find(function(n) { return n.id === nodeId; });
+    var titleParts = (selectedNode.title || "").split('|');
+    var downloads    = titleParts[1] || "data not available for now";
+    var contributors = titleParts[2] || "data not available for now";
+    var stars        = titleParts[3] || "data not available for now";
+
+    var content = '';
+    content += '<h1 style="text-align:center; color:#2c3e50; margin-bottom:20px;">PySAL Network Analysis</h1>';
+    content += '<h2 style="text-align:center; color:#3498db; margin-bottom:5px;">' + nodeId + '</h2>';
+    content += '<p style="text-align:center; color:#7f8c8d; font-style:italic; margin-bottom:20px;">'
+             + nodeTypeLabel(nodeId) + '</p>';
+    content += '<div style="background:#f8f9fa; padding:15px; border-radius:8px; margin-bottom:20px;">';
+    content += '<h3 style="margin-top:0;">📊 Package Statistics</h3>';
+    content += '<p>📥 Downloads: ' + downloads + '</p>';
+    content += '<p>👥 Contributors: ' + contributors + '</p>';
+    content += '<p>⭐ GitHub Stars: ' + stars + '</p>';
+    content += '</div>';
+
+    content += '<h3 style="color:#2c3e50; border-bottom:2px solid #3498db; padding-bottom:5px;">📦 Dependencies ('
+             + uniqueDeps.length + ')</h3>';
+    if (uniqueDeps.length > 0) {
+        content += '<div style="margin-bottom:20px;">';
+        uniqueDeps.forEach(function(depId) {
+            var depNode = allNodes.find(function(n) { return n.id === depId; });
+            var depParts = (depNode && depNode.title ? depNode.title : depId + '|n/a|n/a|n/a').split('|');
+            content += '<div style="border:1px solid #ddd; padding:10px; margin:5px 0; border-radius:5px;">';
+            content += '<strong>' + nodeTypeEmoji(depId) + ' ' + depId + '</strong><br>';
+            content += '<small>Downloads: ' + depParts[1] + ' | Contributors: ' + depParts[2]
+                     + ' | Stars: ' + depParts[3] + '</small>';
+            content += '</div>';
+        });
+        content += '</div>';
+    } else {
+        content += '<p style="color:#7f8c8d; font-style:italic;">No dependencies</p>';
+    }
+
+    content += '<h3 style="color:#2c3e50; border-bottom:2px solid #27ae60; padding-bottom:5px;">📋 Dependents ('
+             + uniqueDepents.length + ')</h3>';
+    if (uniqueDepents.length > 0) {
+        content += '<div style="margin-bottom:20px;">';
+        uniqueDepents.forEach(function(depId) {
+            var depNode = allNodes.find(function(n) { return n.id === depId; });
+            var depParts = (depNode && depNode.title ? depNode.title : depId + '|n/a|n/a|n/a').split('|');
+            content += '<div style="border:1px solid #ddd; padding:10px; margin:5px 0; border-radius:5px;">';
+            content += '<strong>' + nodeTypeEmoji(depId) + ' ' + depId + '</strong><br>';
+            content += '<small>Downloads: ' + depParts[1] + ' | Contributors: ' + depParts[2]
+                     + ' | Stars: ' + depParts[3] + '</small>';
+            content += '</div>';
+        });
+        content += '</div>';
+    } else {
+        content += '<p style="color:#7f8c8d; font-style:italic;">No dependents</p>';
+    }
+
+    content += '<div style="background:#2c3e50; color:white; padding:10px; border-radius:8px; text-align:center;">';
+    content += '<strong>Legend:</strong> 🔴 Core PySAL | 🟠 PySAL Modules | 🔵 External Dependencies';
+    content += '</div>';
+
+    document.getElementById('panel-body').innerHTML = content;
+    document.getElementById('side-panel').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
