@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-10-05 21:07:04 UTC",
+  "generated_at_utc": "2026-10-12 21:38:38 UTC",
   "nodes": [
     {
       "id": "access",
       "label": "access",
       "color": "orange",
-      "value": 41.033221393089256,
-      "title": "access|59,475|14|28",
+      "value": 41.00550976977004,
+      "title": "access|58,894|14|29",
       "package_type": "module",
-      "downloads_last_month": 59475,
+      "downloads_last_month": 58894,
       "contributors": 14,
-      "stars": 28,
+      "stars": 29,
       "repo_url": "https://github.com/pysal/access",
       "pypi_url": "https://pypi.org/project/access/"
     },
@@ -18,10 +18,10 @@
       "id": "affine",
       "label": "affine",
       "color": "lightblue",
-      "value": 53.52634663011702,
-      "title": "affine|4,970,052|data not available for now|data not available for now",
+      "value": 53.57403340588148,
+      "title": "affine|5,054,723|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 4970052,
+      "downloads_last_month": 5054723,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -31,10 +31,10 @@
       "id": "attrs",
       "label": "attrs",
       "color": "lightblue",
-      "value": 67.41746606087679,
-      "title": "attrs|681,485,024|data not available for now|data not available for now",
+      "value": 67.46364010541282,
+      "title": "attrs|692,723,651|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 681485024,
+      "downloads_last_month": 692723651,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -44,10 +44,10 @@
       "id": "beautifulsoup4",
       "label": "beautifulsoup4",
       "color": "lightblue",
-      "value": 64.97944458979988,
-      "title": "beautifulsoup4|287,326,769|data not available for now|data not available for now",
+      "value": 65.00215504086285,
+      "title": "beautifulsoup4|289,647,647|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 287326769,
+      "downloads_last_month": 289647647,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -57,10 +57,10 @@
       "id": "certifi",
       "label": "certifi",
       "color": "lightblue",
-      "value": 69.16980964051379,
-      "title": "certifi|1,267,790,919|data not available for now|data not available for now",
+      "value": 69.2117806164865,
+      "title": "certifi|1,286,781,208|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1267790919,
+      "downloads_last_month": 1286781208,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -70,10 +70,10 @@
       "id": "charset-normalizer",
       "label": "charset-normalizer",
       "color": "lightblue",
-      "value": 68.94002014871833,
-      "title": "charset-normalizer|1,168,679,449|data not available for now|data not available for now",
+      "value": 68.98620070589381,
+      "title": "charset-normalizer|1,187,955,324|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1168679449,
+      "downloads_last_month": 1187955324,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -83,10 +83,10 @@
       "id": "click",
       "label": "click",
       "color": "lightblue",
-      "value": 67.88378264290421,
-      "title": "click|803,891,301|data not available for now|data not available for now",
+      "value": 67.93112330646375,
+      "title": "click|817,486,347|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 803891301,
+      "downloads_last_month": 817486347,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -96,10 +96,10 @@
       "id": "click-plugins",
       "label": "click-plugins",
       "color": "lightblue",
-      "value": 59.68413076469527,
-      "title": "click-plugins|44,026,323|data not available for now|data not available for now",
+      "value": 59.74782546957154,
+      "title": "click-plugins|45,031,001|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 44026323,
+      "downloads_last_month": 45031001,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -109,10 +109,10 @@
       "id": "cligj",
       "label": "cligj",
       "color": "lightblue",
-      "value": 53.37514409500332,
-      "title": "cligj|4,710,847|data not available for now|data not available for now",
+      "value": 53.41200474152305,
+      "title": "cligj|4,772,763|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 4710847,
+      "downloads_last_month": 4772763,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -122,10 +122,10 @@
       "id": "cloudpickle",
       "label": "cloudpickle",
       "color": "lightblue",
-      "value": 63.400964691208095,
-      "title": "cloudpickle|164,260,457|data not available for now|data not available for now",
+      "value": 63.44048761887917,
+      "title": "cloudpickle|166,576,402|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 164260457,
+      "downloads_last_month": 166576402,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -135,10 +135,10 @@
       "id": "contourpy",
       "label": "contourpy",
       "color": "lightblue",
-      "value": 62.85705842886766,
-      "title": "contourpy|135,473,746|data not available for now|data not available for now",
+      "value": 62.89896240550502,
+      "title": "contourpy|137,499,749|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 135473746,
+      "downloads_last_month": 137499749,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -148,10 +148,10 @@
       "id": "cycler",
       "label": "cycler",
       "color": "lightblue",
-      "value": 62.927142307344916,
-      "title": "cycler|138,879,222|data not available for now|data not available for now",
+      "value": 62.96372557969829,
+      "title": "cycler|140,690,726|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 138879222,
+      "downloads_last_month": 140690726,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -161,10 +161,10 @@
       "id": "deprecation",
       "label": "deprecation",
       "color": "lightblue",
-      "value": 60.57186505845858,
-      "title": "deprecation|60,295,781|data not available for now|data not available for now",
+      "value": 60.613828061860715,
+      "title": "deprecation|61,198,781|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 60295781,
+      "downloads_last_month": 61198781,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -174,12 +174,12 @@
       "id": "esda",
       "label": "esda",
       "color": "orange",
-      "value": 44.30247794366442,
-      "title": "esda|189,366|46|259",
+      "value": 44.33057174388632,
+      "title": "esda|191,260|46|260",
       "package_type": "module",
-      "downloads_last_month": 189366,
+      "downloads_last_month": 191260,
       "contributors": 46,
-      "stars": 259,
+      "stars": 260,
       "repo_url": "https://github.com/pysal/esda",
       "pypi_url": "https://pypi.org/project/esda/"
     },
@@ -187,10 +187,10 @@
       "id": "fonttools",
       "label": "fonttools",
       "color": "lightblue",
-      "value": 63.759104092305726,
-      "title": "fonttools|186,479,629|data not available for now|data not available for now",
+      "value": 63.80089020339118,
+      "title": "fonttools|189,260,520|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 186479629,
+      "downloads_last_month": 189260520,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -200,10 +200,10 @@
       "id": "formulaic",
       "label": "formulaic",
       "color": "lightblue",
-      "value": 55.7135335543029,
-      "title": "formulaic|10,785,773|data not available for now|data not available for now",
+      "value": 55.76815334052067,
+      "title": "formulaic|10,996,496|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 10785773,
+      "downloads_last_month": 10996496,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -213,12 +213,12 @@
       "id": "geopandas",
       "label": "geopandas",
       "color": "lightblue",
-      "value": 56.339670037515056,
-      "title": "geopandas|13,464,182|273|5,273",
+      "value": 56.39437117346769,
+      "title": "geopandas|13,727,629|272|5,278",
       "package_type": "external",
-      "downloads_last_month": 13464182,
-      "contributors": 273,
-      "stars": 5273,
+      "downloads_last_month": 13727629,
+      "contributors": 272,
+      "stars": 5278,
       "repo_url": "https://github.com/geopandas/geopandas",
       "pypi_url": "https://pypi.org/project/geopandas/"
     },
@@ -226,10 +226,10 @@
       "id": "giddy",
       "label": "giddy",
       "color": "orange",
-      "value": 42.22211212726383,
-      "title": "giddy|90,624|18|76",
+      "value": 42.21628117195607,
+      "title": "giddy|90,437|18|76",
       "package_type": "module",
-      "downloads_last_month": 90624,
+      "downloads_last_month": 90437,
       "contributors": 18,
       "stars": 76,
       "repo_url": "https://github.com/pysal/giddy",
@@ -239,10 +239,10 @@
       "id": "gwlearn",
       "label": "gwlearn",
       "color": "lightblue",
-      "value": 38.58095857473616,
-      "title": "gwlearn|24,949|data not available for now|data not available for now",
+      "value": 38.555842604661876,
+      "title": "gwlearn|24,728|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 24949,
+      "downloads_last_month": 24728,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -252,10 +252,10 @@
       "id": "idna",
       "label": "idna",
       "color": "lightblue",
-      "value": 69.28948565984686,
-      "title": "idna|1,322,693,843|data not available for now|data not available for now",
+      "value": 69.33320867892104,
+      "title": "idna|1,343,340,011|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1322693843,
+      "downloads_last_month": 1343340011,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -265,10 +265,10 @@
       "id": "inequality",
       "label": "inequality",
       "color": "orange",
-      "value": 41.12231271559381,
-      "title": "inequality|61,382|11|36",
+      "value": 41.09616245659575,
+      "title": "inequality|60,816|11|36",
       "package_type": "module",
-      "downloads_last_month": 61382,
+      "downloads_last_month": 60816,
       "contributors": 11,
       "stars": 36,
       "repo_url": "https://github.com/pysal/inequality",
@@ -278,10 +278,10 @@
       "id": "interface-meta",
       "label": "interface-meta",
       "color": "lightblue",
-      "value": 55.70879836981812,
-      "title": "interface-meta|10,767,696|data not available for now|data not available for now",
+      "value": 55.76349225612976,
+      "title": "interface-meta|10,978,354|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 10767696,
+      "downloads_last_month": 10978354,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -291,10 +291,10 @@
       "id": "jinja2",
       "label": "jinja2",
       "color": "lightblue",
-      "value": 66.68545968238794,
-      "title": "jinja2|525,823,450|data not available for now|data not available for now",
+      "value": 66.7303758667168,
+      "title": "jinja2|534,256,891|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 525823450,
+      "downloads_last_month": 534256891,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -304,10 +304,10 @@
       "id": "joblib",
       "label": "joblib",
       "color": "lightblue",
-      "value": 63.30032157964928,
-      "title": "joblib|158,507,374|data not available for now|data not available for now",
+      "value": 63.33219473868105,
+      "title": "joblib|160,307,202|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 158507374,
+      "downloads_last_month": 160307202,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -317,10 +317,10 @@
       "id": "kiwisolver",
       "label": "kiwisolver",
       "color": "lightblue",
-      "value": 63.16829025053671,
-      "title": "kiwisolver|151,264,480|data not available for now|data not available for now",
+      "value": 63.20118900226095,
+      "title": "kiwisolver|153,037,656|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 151264480,
+      "downloads_last_month": 153037656,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -330,10 +330,10 @@
       "id": "lazy-loader",
       "label": "lazy-loader",
       "color": "lightblue",
-      "value": 58.10234025338015,
-      "title": "lazy-loader|25,139,696|data not available for now|data not available for now",
+      "value": 58.152615373847624,
+      "title": "lazy-loader|25,591,436|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 25139696,
+      "downloads_last_month": 25591436,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -343,10 +343,10 @@
       "id": "libpysal",
       "label": "libpysal",
       "color": "orange",
-      "value": 45.948903243250925,
-      "title": "libpysal|339,312|79|293",
+      "value": 45.990410390293995,
+      "title": "libpysal|344,338|79|293",
       "package_type": "module",
-      "downloads_last_month": 339312,
+      "downloads_last_month": 344338,
       "contributors": 79,
       "stars": 293,
       "repo_url": "https://github.com/pysal/libpysal",
@@ -356,10 +356,10 @@
       "id": "llvmlite",
       "label": "llvmlite",
       "color": "lightblue",
-      "value": 60.09852114507311,
-      "title": "llvmlite|50,987,625|data not available for now|data not available for now",
+      "value": 60.14388340262547,
+      "title": "llvmlite|51,813,579|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 50987625,
+      "downloads_last_month": 51813579,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -369,10 +369,10 @@
       "id": "mapclassify",
       "label": "mapclassify",
       "color": "orange",
-      "value": 47.037800628426574,
-      "title": "mapclassify|499,025|31|151",
+      "value": 47.057738325010114,
+      "title": "mapclassify|502,562|31|151",
       "package_type": "module",
-      "downloads_last_month": 499025,
+      "downloads_last_month": 502562,
       "contributors": 31,
       "stars": 151,
       "repo_url": "https://github.com/pysal/mapclassify",
@@ -382,10 +382,10 @@
       "id": "markupsafe",
       "label": "markupsafe",
       "color": "lightblue",
-      "value": 67.08300223022624,
-      "title": "markupsafe|605,341,352|data not available for now|data not available for now",
+      "value": 67.13884269943932,
+      "title": "markupsafe|617,434,914|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 605341352,
+      "downloads_last_month": 617434914,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -395,12 +395,12 @@
       "id": "matplotlib",
       "label": "matplotlib",
       "color": "lightblue",
-      "value": 63.27780428151898,
-      "title": "matplotlib|157,248,051|1,916|23,325",
+      "value": 63.31311797517642,
+      "title": "matplotlib|159,227,526|1,916|23,355",
       "package_type": "external",
-      "downloads_last_month": 157248051,
+      "downloads_last_month": 159227526,
       "contributors": 1916,
-      "stars": 23325,
+      "stars": 23355,
       "repo_url": "https://github.com/matplotlib/matplotlib",
       "pypi_url": "https://pypi.org/project/matplotlib/"
     },
@@ -408,11 +408,11 @@
       "id": "mgwr",
       "label": "mgwr",
       "color": "orange",
-      "value": 41.13877450719458,
-      "title": "mgwr|61,741|14|432",
+      "value": 41.114207107817464,
+      "title": "mgwr|61,206|15|432",
       "package_type": "module",
-      "downloads_last_month": 61741,
-      "contributors": 14,
+      "downloads_last_month": 61206,
+      "contributors": 15,
       "stars": 432,
       "repo_url": "https://github.com/pysal/mgwr",
       "pypi_url": "https://pypi.org/project/mgwr/"
@@ -421,12 +421,12 @@
       "id": "momepy",
       "label": "momepy",
       "color": "orange",
-      "value": 42.1822093995517,
-      "title": "momepy|89,352|22|636",
+      "value": 42.17771964919557,
+      "title": "momepy|89,210|22|637",
       "package_type": "module",
-      "downloads_last_month": 89352,
+      "downloads_last_month": 89210,
       "contributors": 22,
-      "stars": 636,
+      "stars": 637,
       "repo_url": "https://github.com/pysal/momepy",
       "pypi_url": "https://pypi.org/project/momepy/"
     },
@@ -434,10 +434,10 @@
       "id": "mpmath",
       "label": "mpmath",
       "color": "lightblue",
-      "value": 62.60088938216024,
-      "title": "mpmath|123,721,312|data not available for now|data not available for now",
+      "value": 62.63254197241015,
+      "title": "mpmath|125,116,373|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 123721312,
+      "downloads_last_month": 125116373,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -447,10 +447,10 @@
       "id": "narwhals",
       "label": "narwhals",
       "color": "lightblue",
-      "value": 62.31736667724018,
-      "title": "narwhals|111,898,854|data not available for now|data not available for now",
+      "value": 62.355758461078906,
+      "title": "narwhals|113,431,080|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 111898854,
+      "downloads_last_month": 113431080,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -460,12 +460,12 @@
       "id": "networkx",
       "label": "networkx",
       "color": "lightblue",
-      "value": 63.894162979066344,
-      "title": "networkx|195,618,393|857|17,309",
+      "value": 63.93465913994625,
+      "title": "networkx|198,444,865|857|17,322",
       "package_type": "external",
-      "downloads_last_month": 195618393,
+      "downloads_last_month": 198444865,
       "contributors": 857,
-      "stars": 17309,
+      "stars": 17322,
       "repo_url": "https://github.com/networkx/networkx",
       "pypi_url": "https://pypi.org/project/networkx/"
     },
@@ -473,10 +473,10 @@
       "id": "numba",
       "label": "numba",
       "color": "lightblue",
-      "value": 60.10676723128025,
-      "title": "numba|51,136,784|data not available for now|data not available for now",
+      "value": 60.1517422332406,
+      "title": "numba|51,958,026|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 51136784,
+      "downloads_last_month": 51958026,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -486,12 +486,12 @@
       "id": "numpy",
       "label": "numpy",
       "color": "lightblue",
-      "value": 67.84018227250901,
-      "title": "numpy|791,570,462|2,153|33,011",
+      "value": 67.8776809966315,
+      "title": "numpy|802,155,590|2,159|33,081",
       "package_type": "external",
-      "downloads_last_month": 791570462,
-      "contributors": 2153,
-      "stars": 33011,
+      "downloads_last_month": 802155590,
+      "contributors": 2159,
+      "stars": 33081,
       "repo_url": "https://github.com/numpy/numpy",
       "pypi_url": "https://pypi.org/project/numpy/"
     },
@@ -499,10 +499,10 @@
       "id": "packaging",
       "label": "packaging",
       "color": "lightblue",
-      "value": 69.63551887264995,
-      "title": "packaging|1,495,185,962|data not available for now|data not available for now",
+      "value": 69.66684624775738,
+      "title": "packaging|1,511,871,245|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1495185962,
+      "downloads_last_month": 1511871245,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -512,12 +512,12 @@
       "id": "pandas",
       "label": "pandas",
       "color": "lightblue",
-      "value": 66.76129577837187,
-      "title": "pandas|540,140,873|4,323|49,916",
+      "value": 66.7965051307645,
+      "title": "pandas|546,920,076|4,337|50,042",
       "package_type": "external",
-      "downloads_last_month": 540140873,
-      "contributors": 4323,
-      "stars": 49916,
+      "downloads_last_month": 546920076,
+      "contributors": 4337,
+      "stars": 50042,
       "repo_url": "https://github.com/pandas-dev/pandas",
       "pypi_url": "https://pypi.org/project/pandas/"
     },
@@ -525,10 +525,10 @@
       "id": "patsy",
       "label": "patsy",
       "color": "lightblue",
-      "value": 58.53030085889057,
-      "title": "patsy|29,255,001|data not available for now|data not available for now",
+      "value": 58.56877075171,
+      "title": "patsy|29,656,409|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 29255001,
+      "downloads_last_month": 29656409,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -538,10 +538,10 @@
       "id": "pillow",
       "label": "pillow",
       "color": "lightblue",
-      "value": 66.0995252427839,
-      "title": "pillow|427,263,890|data not available for now|data not available for now",
+      "value": 66.15970954754077,
+      "title": "pillow|436,470,920|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 427263890,
+      "downloads_last_month": 436470920,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -551,10 +551,10 @@
       "id": "platformdirs",
       "label": "platformdirs",
       "color": "lightblue",
-      "value": 66.80121577693126,
-      "title": "platformdirs|547,833,493|data not available for now|data not available for now",
+      "value": 66.84861035878379,
+      "title": "platformdirs|557,108,846|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 547833493,
+      "downloads_last_month": 557108846,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -564,10 +564,10 @@
       "id": "pointpats",
       "label": "pointpats",
       "color": "orange",
-      "value": 41.573170873624306,
-      "title": "pointpats|72,012|20|93",
+      "value": 41.56854147230855,
+      "title": "pointpats|71,894|20|93",
       "package_type": "module",
-      "downloads_last_month": 72012,
+      "downloads_last_month": 71894,
       "contributors": 20,
       "stars": 93,
       "repo_url": "https://github.com/pysal/pointpats",
@@ -577,10 +577,10 @@
       "id": "pulp",
       "label": "pulp",
       "color": "lightblue",
-      "value": 53.697268054033756,
-      "title": "pulp|5,280,275|data not available for now|data not available for now",
+      "value": 53.75581871499478,
+      "title": "pulp|5,390,938|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 5280275,
+      "downloads_last_month": 5390938,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -590,10 +590,10 @@
       "id": "pyogrio",
       "label": "pyogrio",
       "color": "lightblue",
-      "value": 56.18439154301178,
-      "title": "pyogrio|12,743,566|data not available for now|data not available for now",
+      "value": 56.235845718506155,
+      "title": "pyogrio|12,977,977|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 12743566,
+      "downloads_last_month": 12977977,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -603,10 +603,10 @@
       "id": "pyparsing",
       "label": "pyparsing",
       "color": "lightblue",
-      "value": 65.20074977975008,
-      "title": "pyparsing|310,758,518|data not available for now|data not available for now",
+      "value": 65.24632216685237,
+      "title": "pyparsing|315,816,036|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 310758518,
+      "downloads_last_month": 315816036,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -616,12 +616,12 @@
       "id": "pyproj",
       "label": "pyproj",
       "color": "lightblue",
-      "value": 57.56488675459275,
-      "title": "pyproj|20,781,403|86|1,229",
+      "value": 57.61956211822628,
+      "title": "pyproj|21,187,829|90|1,231",
       "package_type": "external",
-      "downloads_last_month": 20781403,
-      "contributors": 86,
-      "stars": 1229,
+      "downloads_last_month": 21187829,
+      "contributors": 90,
+      "stars": 1231,
       "repo_url": "https://github.com/pyproj4/pyproj",
       "pypi_url": "https://pypi.org/project/pyproj/"
     },
@@ -629,12 +629,12 @@
       "id": "pysal",
       "label": "pysal",
       "color": "red",
-      "value": 41.21531613527591,
-      "title": "pysal|63,438|82|1,527",
+      "value": 41.19374132357002,
+      "title": "pysal|62,955|82|1,529",
       "package_type": "core",
-      "downloads_last_month": 63438,
+      "downloads_last_month": 62955,
       "contributors": 82,
-      "stars": 1527,
+      "stars": 1529,
       "repo_url": "https://github.com/pysal/pysal",
       "pypi_url": "https://pypi.org/project/pysal/"
     },
@@ -642,10 +642,10 @@
       "id": "python-dateutil",
       "label": "python-dateutil",
       "color": "lightblue",
-      "value": 68.16214554951253,
-      "title": "python-dateutil|887,201,754|data not available for now|data not available for now",
+      "value": 68.20039047958653,
+      "title": "python-dateutil|899,303,383|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 887201754,
+      "downloads_last_month": 899303383,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -655,10 +655,10 @@
       "id": "quantecon",
       "label": "quantecon",
       "color": "lightblue",
-      "value": 42.103758482436014,
-      "title": "quantecon|86,903|data not available for now|data not available for now",
+      "value": 42.079224865696496,
+      "title": "quantecon|86,151|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 86903,
+      "downloads_last_month": 86151,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -668,12 +668,12 @@
       "id": "rasterio",
       "label": "rasterio",
       "color": "lightblue",
-      "value": 53.531320631442746,
-      "title": "rasterio|4,978,817|185|2,581",
+      "value": 53.5828523850666,
+      "title": "rasterio|5,070,539|185|2,582",
       "package_type": "external",
-      "downloads_last_month": 4978817,
+      "downloads_last_month": 5070539,
       "contributors": 185,
-      "stars": 2581,
+      "stars": 2582,
       "repo_url": "https://github.com/rasterio/rasterio",
       "pypi_url": "https://pypi.org/project/rasterio/"
     },
@@ -681,10 +681,10 @@
       "id": "rasterstats",
       "label": "rasterstats",
       "color": "lightblue",
-      "value": 45.21894761907636,
-      "title": "rasterstats|261,998|data not available for now|data not available for now",
+      "value": 45.26603601166987,
+      "title": "rasterstats|266,405|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 261998,
+      "downloads_last_month": 266405,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -694,12 +694,12 @@
       "id": "requests",
       "label": "requests",
       "color": "lightblue",
-      "value": 68.98173158685542,
-      "title": "requests|1,186,076,091|795|54,465",
+      "value": 69.02120394292595,
+      "title": "requests|1,202,777,296|795|54,599",
       "package_type": "external",
-      "downloads_last_month": 1186076091,
+      "downloads_last_month": 1202777296,
       "contributors": 795,
-      "stars": 54465,
+      "stars": 54599,
       "repo_url": "https://github.com/psf/requests",
       "pypi_url": "https://pypi.org/project/requests/"
     },
@@ -707,10 +707,10 @@
       "id": "rtree",
       "label": "rtree",
       "color": "lightblue",
-      "value": 54.880601475894586,
-      "title": "rtree|8,029,858|data not available for now|data not available for now",
+      "value": 54.93800036540782,
+      "title": "rtree|8,194,802|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 8029858,
+      "downloads_last_month": 8194802,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -720,12 +720,12 @@
       "id": "scikit-learn",
       "label": "scikit-learn",
       "color": "lightblue",
-      "value": 63.698451732128575,
-      "title": "scikit-learn|182,515,715|3,565|67,473",
+      "value": 63.726317807614315,
+      "title": "scikit-learn|184,326,320|3,568|67,566",
       "package_type": "external",
-      "downloads_last_month": 182515715,
-      "contributors": 3565,
-      "stars": 67473,
+      "downloads_last_month": 184326320,
+      "contributors": 3568,
+      "stars": 67566,
       "repo_url": "https://github.com/scikit-learn/scikit-learn",
       "pypi_url": "https://pypi.org/project/scikit-learn/"
     },
@@ -733,12 +733,12 @@
       "id": "scipy",
       "label": "scipy",
       "color": "lightblue",
-      "value": 64.99718997794574,
-      "title": "scipy|289,138,650|1,999|15,077",
+      "value": 65.02959183296582,
+      "title": "scipy|292,476,549|2,002|15,103",
       "package_type": "external",
-      "downloads_last_month": 289138650,
-      "contributors": 1999,
-      "stars": 15077,
+      "downloads_last_month": 292476549,
+      "contributors": 2002,
+      "stars": 15103,
       "repo_url": "https://github.com/scipy/scipy",
       "pypi_url": "https://pypi.org/project/scipy/"
     },
@@ -746,12 +746,12 @@
       "id": "seaborn",
       "label": "seaborn",
       "color": "lightblue",
-      "value": 58.22254993615984,
-      "title": "seaborn|26,233,354|217|14,060",
+      "value": 58.26913658289012,
+      "title": "seaborn|26,669,876|217|14,064",
       "package_type": "external",
-      "downloads_last_month": 26233354,
+      "downloads_last_month": 26669876,
       "contributors": 217,
-      "stars": 14060,
+      "stars": 14064,
       "repo_url": "https://github.com/mwaskom/seaborn",
       "pypi_url": "https://pypi.org/project/seaborn/"
     },
@@ -759,11 +759,11 @@
       "id": "segregation",
       "label": "segregation",
       "color": "orange",
-      "value": 41.642098583067494,
-      "title": "segregation|73,792|17|122",
+      "value": 41.60109950533368,
+      "title": "segregation|72,728|18|122",
       "package_type": "module",
-      "downloads_last_month": 73792,
-      "contributors": 17,
+      "downloads_last_month": 72728,
+      "contributors": 18,
       "stars": 122,
       "repo_url": "https://github.com/pysal/segregation",
       "pypi_url": "https://pypi.org/project/segregation/"
@@ -772,12 +772,12 @@
       "id": "shapely",
       "label": "shapely",
       "color": "lightblue",
-      "value": 60.49263491281501,
-      "title": "shapely|58,627,000|177|4,519",
+      "value": 60.536310592851194,
+      "title": "shapely|59,541,121|177|4,525",
       "package_type": "external",
-      "downloads_last_month": 58627000,
+      "downloads_last_month": 59541121,
       "contributors": 177,
-      "stars": 4519,
+      "stars": 4525,
       "repo_url": "https://github.com/shapely/shapely",
       "pypi_url": "https://pypi.org/project/shapely/"
     },
@@ -785,10 +785,10 @@
       "id": "simplejson",
       "label": "simplejson",
       "color": "lightblue",
-      "value": 59.471636287055084,
-      "title": "simplejson|40,833,909|data not available for now|data not available for now",
+      "value": 59.52650937833845,
+      "title": "simplejson|41,635,422|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 40833909,
+      "downloads_last_month": 41635422,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -798,10 +798,10 @@
       "id": "six",
       "label": "six",
       "color": "lightblue",
-      "value": 68.12586336071426,
-      "title": "six|875,871,745|data not available for now|data not available for now",
+      "value": 68.16596505909612,
+      "title": "six|888,402,984|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 875871745,
+      "downloads_last_month": 888402984,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -811,10 +811,10 @@
       "id": "soupsieve",
       "label": "soupsieve",
       "color": "lightblue",
-      "value": 65.00349966271347,
-      "title": "soupsieve|289,785,646|data not available for now|data not available for now",
+      "value": 65.02988755712343,
+      "title": "soupsieve|292,507,190|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 289785646,
+      "downloads_last_month": 292507190,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -824,10 +824,10 @@
       "id": "spaghetti",
       "label": "spaghetti",
       "color": "orange",
-      "value": 41.08537322946685,
-      "title": "spaghetti|60,584|24|285",
+      "value": 41.06000549136136,
+      "title": "spaghetti|60,042|24|285",
       "package_type": "module",
-      "downloads_last_month": 60584,
+      "downloads_last_month": 60042,
       "contributors": 24,
       "stars": 285,
       "repo_url": "https://github.com/pysal/spaghetti",
@@ -837,10 +837,10 @@
       "id": "spglm",
       "label": "spglm",
       "color": "orange",
-      "value": 41.22451224405623,
-      "title": "spglm|63,645|9|37",
+      "value": 41.203812220348006,
+      "title": "spglm|63,180|9|37",
       "package_type": "module",
-      "downloads_last_month": 63645,
+      "downloads_last_month": 63180,
       "contributors": 9,
       "stars": 37,
       "repo_url": "https://github.com/pysal/spglm",
@@ -850,10 +850,10 @@
       "id": "spint",
       "label": "spint",
       "color": "orange",
-      "value": 41.06990824027035,
-      "title": "spint|60,253|9|58",
+      "value": 41.037821561615424,
+      "title": "spint|59,572|9|58",
       "package_type": "module",
-      "downloads_last_month": 60253,
+      "downloads_last_month": 59572,
       "contributors": 9,
       "stars": 58,
       "repo_url": "https://github.com/pysal/spint",
@@ -863,10 +863,10 @@
       "id": "splot",
       "label": "splot",
       "color": "orange",
-      "value": 41.01574847839996,
-      "title": "splot|59,108|59|101",
+      "value": 40.98810509366116,
+      "title": "splot|58,532|59|101",
       "package_type": "module",
-      "downloads_last_month": 59108,
+      "downloads_last_month": 58532,
       "contributors": 59,
       "stars": 101,
       "repo_url": "https://github.com/pysal/splot",
@@ -876,12 +876,12 @@
       "id": "spopt",
       "label": "spopt",
       "color": "orange",
-      "value": 41.17705666769008,
-      "title": "spopt|62,584|24|381",
+      "value": 41.160817250197134,
+      "title": "spopt|62,225|24|383",
       "package_type": "module",
-      "downloads_last_month": 62584,
+      "downloads_last_month": 62225,
       "contributors": 24,
-      "stars": 381,
+      "stars": 383,
       "repo_url": "https://github.com/pysal/spopt",
       "pypi_url": "https://pypi.org/project/spopt/"
     },
@@ -889,10 +889,10 @@
       "id": "spreg",
       "label": "spreg",
       "color": "orange",
-      "value": 42.54636460994069,
-      "title": "spreg|101,655|28|90",
+      "value": 42.5347888871604,
+      "title": "spreg|101,239|28|90",
       "package_type": "module",
-      "downloads_last_month": 101655,
+      "downloads_last_month": 101239,
       "contributors": 28,
       "stars": 90,
       "repo_url": "https://github.com/pysal/spreg",
@@ -902,12 +902,12 @@
       "id": "statsmodels",
       "label": "statsmodels",
       "color": "lightblue",
-      "value": 58.753879472035464,
-      "title": "statsmodels|31,666,264|591|11,673",
+      "value": 58.79203101155274,
+      "title": "statsmodels|32,097,137|595|11,680",
       "package_type": "external",
-      "downloads_last_month": 31666264,
-      "contributors": 591,
-      "stars": 11673,
+      "downloads_last_month": 32097137,
+      "contributors": 595,
+      "stars": 11680,
       "repo_url": "https://github.com/statsmodels/statsmodels",
       "pypi_url": "https://pypi.org/project/statsmodels/"
     },
@@ -915,10 +915,10 @@
       "id": "sympy",
       "label": "sympy",
       "color": "lightblue",
-      "value": 62.635028506770844,
-      "title": "sympy|125,226,629|data not available for now|data not available for now",
+      "value": 62.66517837325999,
+      "title": "sympy|126,571,268|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 125226629,
+      "downloads_last_month": 126571268,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -928,10 +928,10 @@
       "id": "threadpoolctl",
       "label": "threadpoolctl",
       "color": "lightblue",
-      "value": 63.526979234308,
-      "title": "threadpoolctl|171,759,149|data not available for now|data not available for now",
+      "value": 63.55730723696985,
+      "title": "threadpoolctl|173,614,393|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 171759149,
+      "downloads_last_month": 173614393,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -941,10 +941,10 @@
       "id": "tobler",
       "label": "tobler",
       "color": "orange",
-      "value": 42.192804681797924,
-      "title": "tobler|89,688|11|170",
+      "value": 42.23705536609895,
+      "title": "tobler|91,105|11|170",
       "package_type": "module",
-      "downloads_last_month": 89688,
+      "downloads_last_month": 91105,
       "contributors": 11,
       "stars": 170,
       "repo_url": "https://github.com/pysal/tobler",
@@ -954,10 +954,10 @@
       "id": "tqdm",
       "label": "tqdm",
       "color": "lightblue",
-      "value": 65.96169004061005,
-      "title": "tqdm|406,902,890|data not available for now|data not available for now",
+      "value": 66.003240970012,
+      "title": "tqdm|412,936,455|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 406902890,
+      "downloads_last_month": 412936455,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -967,10 +967,10 @@
       "id": "typing-extensions",
       "label": "typing-extensions",
       "color": "lightblue",
-      "value": 69.40255885726064,
-      "title": "typing-extensions|1,376,750,391|data not available for now|data not available for now",
+      "value": 69.44271571779203,
+      "title": "typing-extensions|1,396,475,070|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1376750391,
+      "downloads_last_month": 1396475070,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -980,10 +980,10 @@
       "id": "urllib3",
       "label": "urllib3",
       "color": "lightblue",
-      "value": 69.24952749267692,
-      "title": "urllib3|1,304,103,083|data not available for now|data not available for now",
+      "value": 69.29132442409498,
+      "title": "urllib3|1,323,555,688|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 1304103083,
+      "downloads_last_month": 1323555688,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -993,10 +993,10 @@
       "id": "wrapt",
       "label": "wrapt",
       "color": "lightblue",
-      "value": 65.78132320149106,
-      "title": "wrapt|381,717,464|data not available for now|data not available for now",
+      "value": 65.83444393200466,
+      "title": "wrapt|388,968,516|data not available for now|data not available for now",
       "package_type": "external",
-      "downloads_last_month": 381717464,
+      "downloads_last_month": 388968516,
       "contributors": null,
       "stars": null,
       "repo_url": null,
@@ -1014,13 +1014,13 @@
       "from": "access",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "geopandas",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "geopandas",
@@ -1032,43 +1032,43 @@
       "from": "geopandas",
       "to": "pandas",
       "color": "#1f77b4",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "pandas",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "pandas",
       "to": "python-dateutil",
       "color": "#1f77b4",
-      "width": 4.081
+      "width": 4.085
     },
     {
       "from": "python-dateutil",
       "to": "six",
       "color": "#1f77b4",
-      "width": 4.061
+      "width": 4.066
     },
     {
       "from": "geopandas",
       "to": "pyogrio",
       "color": "#1f77b4",
-      "width": 1.369
+      "width": 1.371
     },
     {
       "from": "pyogrio",
       "to": "certifi",
       "color": "#1f77b4",
-      "width": 4.683
+      "width": 4.69
     },
     {
       "from": "pyogrio",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "pyogrio",
@@ -1080,37 +1080,37 @@
       "from": "geopandas",
       "to": "pyproj",
       "color": "#1f77b4",
-      "width": 1.472
+      "width": 1.474
     },
     {
       "from": "pyproj",
       "to": "certifi",
       "color": "#1f77b4",
-      "width": 4.683
+      "width": 4.69
     },
     {
       "from": "geopandas",
       "to": "shapely",
       "color": "#1f77b4",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "shapely",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "access",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "access",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "access",
@@ -1122,25 +1122,25 @@
       "from": "scipy",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "pysal",
       "to": "beautifulsoup4",
       "color": "#d62728",
-      "width": 2.753
+      "width": 2.751
     },
     {
       "from": "beautifulsoup4",
       "to": "soupsieve",
       "color": "#1f77b4",
-      "width": 2.761
+      "width": 2.759
     },
     {
       "from": "beautifulsoup4",
       "to": "typing-extensions",
       "color": "#1f77b4",
-      "width": 4.838
+      "width": 4.844
     },
     {
       "from": "pysal",
@@ -1152,7 +1152,7 @@
       "from": "esda",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "esda",
@@ -1164,31 +1164,31 @@
       "from": "libpysal",
       "to": "beautifulsoup4",
       "color": "#ff7f0e",
-      "width": 2.753
+      "width": 2.751
     },
     {
       "from": "libpysal",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "libpysal",
       "to": "jinja2",
       "color": "#ff7f0e",
-      "width": 3.372
+      "width": 3.378
     },
     {
       "from": "jinja2",
       "to": "markupsafe",
       "color": "#1f77b4",
-      "width": 3.545
+      "width": 3.556
     },
     {
       "from": "libpysal",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "libpysal",
@@ -1200,73 +1200,73 @@
       "from": "libpysal",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "libpysal",
       "to": "platformdirs",
       "color": "#ff7f0e",
-      "width": 3.421
+      "width": 3.428
     },
     {
       "from": "libpysal",
       "to": "requests",
       "color": "#ff7f0e",
-      "width": 4.563
+      "width": 4.568
     },
     {
       "from": "requests",
       "to": "certifi",
       "color": "#1f77b4",
-      "width": 4.683
+      "width": 4.69
     },
     {
       "from": "requests",
       "to": "charset-normalizer",
       "color": "#1f77b4",
-      "width": 4.536
+      "width": 4.546
     },
     {
       "from": "requests",
       "to": "idna",
       "color": "#1f77b4",
-      "width": 4.762
+      "width": 4.77
     },
     {
       "from": "requests",
       "to": "urllib3",
       "color": "#1f77b4",
-      "width": 4.736
+      "width": 4.743
     },
     {
       "from": "libpysal",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "scikit-learn",
       "to": "joblib",
       "color": "#1f77b4",
-      "width": 2.302
+      "width": 2.303
     },
     {
       "from": "joblib",
       "to": "cloudpickle",
       "color": "#1f77b4",
-      "width": 2.326
+      "width": 2.328
     },
     {
       "from": "scikit-learn",
       "to": "narwhals",
       "color": "#1f77b4",
-      "width": 2.094
+      "width": 2.096
     },
     {
       "from": "scikit-learn",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "scikit-learn",
@@ -1278,7 +1278,7 @@
       "from": "scikit-learn",
       "to": "threadpoolctl",
       "color": "#1f77b4",
-      "width": 2.356
+      "width": 2.355
     },
     {
       "from": "libpysal",
@@ -1290,25 +1290,25 @@
       "from": "libpysal",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "esda",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "esda",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "esda",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "esda",
@@ -1320,13 +1320,13 @@
       "from": "esda",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "pysal",
       "to": "geopandas",
       "color": "#d62728",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "pysal",
@@ -1356,25 +1356,25 @@
       "from": "mapclassify",
       "to": "networkx",
       "color": "#ff7f0e",
-      "width": 2.447
+      "width": 2.449
     },
     {
       "from": "mapclassify",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "mapclassify",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "mapclassify",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "mapclassify",
@@ -1386,43 +1386,43 @@
       "from": "giddy",
       "to": "matplotlib",
       "color": "#ff7f0e",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "matplotlib",
       "to": "contourpy",
       "color": "#1f77b4",
-      "width": 2.204
+      "width": 2.206
     },
     {
       "from": "contourpy",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "matplotlib",
       "to": "cycler",
       "color": "#1f77b4",
-      "width": 2.219
+      "width": 2.22
     },
     {
       "from": "matplotlib",
       "to": "fonttools",
       "color": "#1f77b4",
-      "width": 2.413
+      "width": 2.415
     },
     {
       "from": "matplotlib",
       "to": "kiwisolver",
       "color": "#1f77b4",
-      "width": 2.272
+      "width": 2.273
     },
     {
       "from": "matplotlib",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "matplotlib",
@@ -1434,19 +1434,19 @@
       "from": "matplotlib",
       "to": "pillow",
       "color": "#1f77b4",
-      "width": 3.138
+      "width": 3.149
     },
     {
       "from": "matplotlib",
       "to": "pyparsing",
       "color": "#1f77b4",
-      "width": 2.824
+      "width": 2.828
     },
     {
       "from": "matplotlib",
       "to": "python-dateutil",
       "color": "#1f77b4",
-      "width": 4.081
+      "width": 4.085
     },
     {
       "from": "giddy",
@@ -1458,31 +1458,31 @@
       "from": "quantecon",
       "to": "numba",
       "color": "#1f77b4",
-      "width": 1.74
+      "width": 1.742
     },
     {
       "from": "numba",
       "to": "llvmlite",
       "color": "#1f77b4",
-      "width": 1.739
+      "width": 1.74
     },
     {
       "from": "numba",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "quantecon",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "quantecon",
       "to": "requests",
       "color": "#1f77b4",
-      "width": 4.563
+      "width": 4.568
     },
     {
       "from": "quantecon",
@@ -1494,7 +1494,7 @@
       "from": "quantecon",
       "to": "sympy",
       "color": "#1f77b4",
-      "width": 2.158
+      "width": 2.157
     },
     {
       "from": "sympy",
@@ -1512,25 +1512,25 @@
       "from": "giddy",
       "to": "seaborn",
       "color": "#ff7f0e",
-      "width": 1.53
+      "width": 1.531
     },
     {
       "from": "seaborn",
       "to": "matplotlib",
       "color": "#1f77b4",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "seaborn",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "seaborn",
       "to": "pandas",
       "color": "#1f77b4",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "pysal",
@@ -1542,13 +1542,13 @@
       "from": "gwlearn",
       "to": "geopandas",
       "color": "#1f77b4",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "gwlearn",
       "to": "joblib",
       "color": "#1f77b4",
-      "width": 2.302
+      "width": 2.303
     },
     {
       "from": "gwlearn",
@@ -1560,19 +1560,19 @@
       "from": "gwlearn",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "gwlearn",
       "to": "pandas",
       "color": "#1f77b4",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "gwlearn",
       "to": "scikit-learn",
       "color": "#1f77b4",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "gwlearn",
@@ -1584,7 +1584,7 @@
       "from": "pysal",
       "to": "inequality",
       "color": "#d62728",
-      "width": 1.026
+      "width": 1.025
     },
     {
       "from": "inequality",
@@ -1596,19 +1596,19 @@
       "from": "inequality",
       "to": "matplotlib",
       "color": "#ff7f0e",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "inequality",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "inequality",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "inequality",
@@ -1620,7 +1620,7 @@
       "from": "pysal",
       "to": "lazy-loader",
       "color": "#d62728",
-      "width": 1.519
+      "width": 1.52
     },
     {
       "from": "lazy-loader",
@@ -1644,7 +1644,7 @@
       "from": "pysal",
       "to": "mgwr",
       "color": "#d62728",
-      "width": 1.026
+      "width": 1.025
     },
     {
       "from": "mgwr",
@@ -1656,7 +1656,7 @@
       "from": "mgwr",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "mgwr",
@@ -1680,7 +1680,7 @@
       "from": "spglm",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "spglm",
@@ -1704,19 +1704,19 @@
       "from": "spreg",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "spreg",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "spreg",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "spreg",
@@ -1740,7 +1740,7 @@
       "from": "momepy",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "momepy",
@@ -1752,7 +1752,7 @@
       "from": "momepy",
       "to": "networkx",
       "color": "#ff7f0e",
-      "width": 2.447
+      "width": 2.449
     },
     {
       "from": "momepy",
@@ -1764,25 +1764,25 @@
       "from": "momepy",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "momepy",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "momepy",
       "to": "tqdm",
       "color": "#ff7f0e",
-      "width": 3.087
+      "width": 3.09
     },
     {
       "from": "pysal",
       "to": "numpy",
       "color": "#d62728",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "pysal",
@@ -1794,13 +1794,13 @@
       "from": "pysal",
       "to": "pandas",
       "color": "#d62728",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "pysal",
       "to": "platformdirs",
       "color": "#d62728",
-      "width": 3.421
+      "width": 3.428
     },
     {
       "from": "pysal",
@@ -1812,7 +1812,7 @@
       "from": "pointpats",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "pointpats",
@@ -1824,19 +1824,19 @@
       "from": "pointpats",
       "to": "matplotlib",
       "color": "#ff7f0e",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "pointpats",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "pointpats",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "pointpats",
@@ -1848,19 +1848,19 @@
       "from": "pointpats",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "pysal",
       "to": "requests",
       "color": "#d62728",
-      "width": 4.563
+      "width": 4.568
     },
     {
       "from": "pysal",
       "to": "scikit-learn",
       "color": "#d62728",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "pysal",
@@ -1878,7 +1878,7 @@
       "from": "segregation",
       "to": "deprecation",
       "color": "#ff7f0e",
-      "width": 1.803
+      "width": 1.805
     },
     {
       "from": "deprecation",
@@ -1890,13 +1890,13 @@
       "from": "segregation",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "segregation",
       "to": "joblib",
       "color": "#ff7f0e",
-      "width": 2.302
+      "width": 2.303
     },
     {
       "from": "segregation",
@@ -1914,37 +1914,37 @@
       "from": "segregation",
       "to": "matplotlib",
       "color": "#ff7f0e",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "segregation",
       "to": "numba",
       "color": "#ff7f0e",
-      "width": 1.74
+      "width": 1.742
     },
     {
       "from": "segregation",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "segregation",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "segregation",
       "to": "pyproj",
       "color": "#ff7f0e",
-      "width": 1.472
+      "width": 1.474
     },
     {
       "from": "segregation",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "segregation",
@@ -1956,19 +1956,19 @@
       "from": "segregation",
       "to": "seaborn",
       "color": "#ff7f0e",
-      "width": 1.53
+      "width": 1.531
     },
     {
       "from": "segregation",
       "to": "tqdm",
       "color": "#ff7f0e",
-      "width": 3.087
+      "width": 3.09
     },
     {
       "from": "pysal",
       "to": "shapely",
       "color": "#d62728",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "pysal",
@@ -1986,7 +1986,7 @@
       "from": "spaghetti",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "spaghetti",
@@ -1998,19 +1998,19 @@
       "from": "spaghetti",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "spaghetti",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "spaghetti",
       "to": "rtree",
       "color": "#ff7f0e",
-      "width": 1.293
+      "width": 1.294
     },
     {
       "from": "spaghetti",
@@ -2022,7 +2022,7 @@
       "from": "spaghetti",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "pysal",
@@ -2046,7 +2046,7 @@
       "from": "spint",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "spint",
@@ -2082,7 +2082,7 @@
       "from": "splot",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "splot",
@@ -2106,13 +2106,13 @@
       "from": "splot",
       "to": "matplotlib",
       "color": "#ff7f0e",
-      "width": 2.297
+      "width": 2.298
     },
     {
       "from": "splot",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "splot",
@@ -2124,7 +2124,7 @@
       "from": "splot",
       "to": "seaborn",
       "color": "#ff7f0e",
-      "width": 1.53
+      "width": 1.531
     },
     {
       "from": "splot",
@@ -2142,7 +2142,7 @@
       "from": "spopt",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "spopt",
@@ -2160,19 +2160,19 @@
       "from": "spopt",
       "to": "networkx",
       "color": "#ff7f0e",
-      "width": 2.447
+      "width": 2.449
     },
     {
       "from": "spopt",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "spopt",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "spopt",
@@ -2184,13 +2184,13 @@
       "from": "spopt",
       "to": "pulp",
       "color": "#ff7f0e",
-      "width": 1.238
+      "width": 1.239
     },
     {
       "from": "spopt",
       "to": "scikit-learn",
       "color": "#ff7f0e",
-      "width": 2.398
+      "width": 2.397
     },
     {
       "from": "spopt",
@@ -2202,7 +2202,7 @@
       "from": "spopt",
       "to": "shapely",
       "color": "#ff7f0e",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "spopt",
@@ -2214,7 +2214,7 @@
       "from": "spopt",
       "to": "tqdm",
       "color": "#ff7f0e",
-      "width": 3.087
+      "width": 3.09
     },
     {
       "from": "pysal",
@@ -2232,13 +2232,13 @@
       "from": "tobler",
       "to": "geopandas",
       "color": "#ff7f0e",
-      "width": 1.38
+      "width": 1.381
     },
     {
       "from": "tobler",
       "to": "joblib",
       "color": "#ff7f0e",
-      "width": 2.302
+      "width": 2.303
     },
     {
       "from": "tobler",
@@ -2250,19 +2250,19 @@
       "from": "tobler",
       "to": "numpy",
       "color": "#ff7f0e",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "tobler",
       "to": "pandas",
       "color": "#ff7f0e",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "tobler",
       "to": "rasterio",
       "color": "#ff7f0e",
-      "width": 1.231
+      "width": 1.232
     },
     {
       "from": "rasterio",
@@ -2274,37 +2274,37 @@
       "from": "affine",
       "to": "attrs",
       "color": "#1f77b4",
-      "width": 3.7
+      "width": 3.708
     },
     {
       "from": "rasterio",
       "to": "attrs",
       "color": "#1f77b4",
-      "width": 3.7
+      "width": 3.708
     },
     {
       "from": "rasterio",
       "to": "certifi",
       "color": "#1f77b4",
-      "width": 4.683
+      "width": 4.69
     },
     {
       "from": "rasterio",
       "to": "click",
       "color": "#1f77b4",
-      "width": 3.933
+      "width": 3.941
     },
     {
       "from": "rasterio",
       "to": "click-plugins",
       "color": "#1f77b4",
-      "width": 1.686
+      "width": 1.69
     },
     {
       "from": "click-plugins",
       "to": "click",
       "color": "#1f77b4",
-      "width": 3.933
+      "width": 3.941
     },
     {
       "from": "rasterio",
@@ -2316,19 +2316,19 @@
       "from": "cligj",
       "to": "click",
       "color": "#1f77b4",
-      "width": 3.933
+      "width": 3.941
     },
     {
       "from": "rasterio",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "rasterio",
       "to": "pyparsing",
       "color": "#1f77b4",
-      "width": 2.824
+      "width": 2.828
     },
     {
       "from": "tobler",
@@ -2346,7 +2346,7 @@
       "from": "rasterstats",
       "to": "click",
       "color": "#1f77b4",
-      "width": 3.933
+      "width": 3.941
     },
     {
       "from": "rasterstats",
@@ -2358,31 +2358,31 @@
       "from": "rasterstats",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "rasterstats",
       "to": "pyogrio",
       "color": "#1f77b4",
-      "width": 1.369
+      "width": 1.371
     },
     {
       "from": "rasterstats",
       "to": "rasterio",
       "color": "#1f77b4",
-      "width": 1.231
+      "width": 1.232
     },
     {
       "from": "rasterstats",
       "to": "shapely",
       "color": "#1f77b4",
-      "width": 1.792
+      "width": 1.794
     },
     {
       "from": "rasterstats",
       "to": "simplejson",
       "color": "#1f77b4",
-      "width": 1.661
+      "width": 1.664
     },
     {
       "from": "tobler",
@@ -2394,37 +2394,37 @@
       "from": "tobler",
       "to": "statsmodels",
       "color": "#ff7f0e",
-      "width": 1.582
+      "width": 1.583
     },
     {
       "from": "statsmodels",
       "to": "formulaic",
       "color": "#1f77b4",
-      "width": 1.34
+      "width": 1.341
     },
     {
       "from": "formulaic",
       "to": "interface-meta",
       "color": "#1f77b4",
-      "width": 1.339
+      "width": 1.341
     },
     {
       "from": "formulaic",
       "to": "narwhals",
       "color": "#1f77b4",
-      "width": 2.094
+      "width": 2.096
     },
     {
       "from": "formulaic",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "formulaic",
       "to": "pandas",
       "color": "#1f77b4",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "formulaic",
@@ -2436,19 +2436,19 @@
       "from": "formulaic",
       "to": "typing-extensions",
       "color": "#1f77b4",
-      "width": 4.838
+      "width": 4.844
     },
     {
       "from": "formulaic",
       "to": "wrapt",
       "color": "#1f77b4",
-      "width": 3.021
+      "width": 3.029
     },
     {
       "from": "statsmodels",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "statsmodels",
@@ -2460,7 +2460,7 @@
       "from": "statsmodels",
       "to": "pandas",
       "color": "#1f77b4",
-      "width": 3.404
+      "width": 3.406
     },
     {
       "from": "statsmodels",
@@ -2472,7 +2472,7 @@
       "from": "patsy",
       "to": "numpy",
       "color": "#1f77b4",
-      "width": 3.91
+      "width": 3.914
     },
     {
       "from": "patsy",
@@ -2490,7 +2490,7 @@
       "from": "tobler",
       "to": "tqdm",
       "color": "#ff7f0e",
-      "width": 3.087
+      "width": 3.09
     }
   ]
 }
